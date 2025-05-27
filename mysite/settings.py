@@ -81,6 +81,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+CSRF_TRUSTED_ORIGINS = ['https://django-deploy-1-production.up.railway.app']
 
 DATABASE_URL = 'postgresql://postgres:oodSGWVAwlzBTaYFMSfYDPKAniojlCNk@postgres.railway.internal:5432/railway'
 
