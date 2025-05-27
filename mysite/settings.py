@@ -71,12 +71,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
-# Set default values for the environment variables if they’re not already set
-os.environ.setdefault("PGDATABASE", "django-deploy")
-os.environ.setdefault("PGUSER", "postgres")
-os.environ.setdefault("PGPASSWORD", "localpas")
-os.environ.setdefault("PGHOST", "localhost")
-os.environ.setdefault("PGPORT", "5432")
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -84,11 +78,11 @@ os.environ.setdefault("PGPORT", "5432")
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+        'NAME': os.environ.get("PGDATABASE", BASE_DIR / "db.sqlite3"),
+        'USER': os.environ.get("PGUSER", ""),
+        'PASSWORD': os.environ.get("PGPASSWORD", ""),
+        'HOST': os.environ.get("PGHOST", ""),
+        'PORT': os.environ.get("PGPORT", ""),
     }
 }
 # Password validation
